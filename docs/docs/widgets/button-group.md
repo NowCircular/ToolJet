@@ -1,25 +1,23 @@
 ---
-id: button
-title: Button
+id: button-group
+title: Button Group
 ---
-# Button
+# Button group
 
-Button widget can be used to take actions.
+Button group widget can be used to take actions.
 
-<iframe height="500"src="https://www.youtube.com/embed/zw3yxC7WUOg" title="Tooljet Button Widget" frameborder="0" allowfullscreen width="100%"></iframe>
 
 ## Properties
 ### Event: On click
 
 <div style={{textAlign: 'center'}}>
 
-![ToolJet - Widget Reference - Button Action List](/img/widgets/button/button-actions.png)
 
 </div>
 
-To add an event to a button, click on the widget handle to open the widget properties on the right sidebar. Go to the **Events** section and click on **Add handler**.
+To add an event to a button group, click on the widget handle to open the widget properties on the right sidebar. Go to the **Events** section and click on **Add handler**.
 
-**On Click** event is triggered when the button is clicked. Just like any other event on ToolJet, you can set multiple handlers for on click event.
+**On Click** event is triggered when the button group is clicked. Just like any other event on ToolJet, you can set multiple handlers for on click event.
 
 :::info
 Check [Action Reference](/docs/actions/show-alert) docs to get the detailed information about all the **Actions**.
@@ -29,22 +27,17 @@ Check [Action Reference](/docs/actions/show-alert) docs to get the detailed info
 
 <div style={{textAlign: 'center'}}>
 
-![ToolJet - widget- button](/img/widgets/button/properties.png)
-
 </div>
 
 | Properties  | description | Expected value |
 | ----------- | ----------- | -------------- |
-| Button Text | It can be used to set the label of the button. | Any **String** value: `Send Message`, `Delete`, or `{{queries.xyz.data.action}}` |
-| Loading state | Loading state can be used to show a spinner as the button content. Loading state is commonly used with isLoading property of the queries to show a loading status while a query is being run. | Switch the toggle **On** or click on `fx` to programmatically set the value `{{true}}` or `{{false}}`  |
+| label | label is used to set the heading of the button group. | Any **String** value |
+| labels | It can be used to set the labels of the button group items. |  Array of **strings**|
+| values |Values for button group items. | **Array** of strings  |
+| Default  selected | Initial selected values can be set using this. | Array of **strings**  |
+| Enable multiple selection | Toggle this to allow multiple button selection. | Toggle to true/false |
 
 ### Layout
-
-<div style={{textAlign: 'center'}}>
-
-![ToolJet - widget- button](/img/widgets/list-view/listlayout.png)
-
-</div>
 
 | Layout  | description | Expected value |
 | ----------- | ----------- | ------------ |
@@ -55,8 +48,6 @@ Check [Action Reference](/docs/actions/show-alert) docs to get the detailed info
 
 <div style={{textAlign: 'center'}}>
 
-![ToolJet - widget- button](/img/widgets/button/styles.png)
-
 </div>
 
 | Style      | Description |
@@ -66,6 +57,7 @@ Check [Action Reference](/docs/actions/show-alert) docs to get the detailed info
 | Visibility | Toggle on or off to control the visibility of the widget. You can programmatically change its value by clicking on the `Fx` button next to it. If `{{false}}` the widget will not visible after the app is deployed. By default, it's set to `{{true}}`. |
 | Disable | Toggle on to lock the widget. You can programmatically change its value by clicking on the `Fx` button next to it, if set to `{{true}}`, the widget will be locked and becomes non-functional. By default, its value is set to `{{false}}`. |
 | Border radius | Use this property to modify the border radius of the button. |
+| Selected background color | Use this property to modify the background colour of selected buttons |
 
 :::info
 Any property having `Fx` button next to its field can be **programmatically configured**.
