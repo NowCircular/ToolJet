@@ -43,7 +43,7 @@ env:
   AU_SA_KEY: ${{ secrets.GCP_AU_DEV_SA_KEY }}
   REGION_SINGAPORE: ${{ secrets.REGION_SINGAPORE }}
   REGION_SYDNEY: ${{ secrets.REGION_SYDNEY }}
-  SERVICE: ToolJet
+  SERVICE: tooljet
 
 jobs:
   deploy:
@@ -64,8 +64,8 @@ jobs:
 
       - name: Build and Push Container
         run: |-
-          DOCKER_BUILDKIT=1 docker buildx build --platform=linux/amd64 -f docker/production.Dockerfile -t asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:monorepo-${{  github.sha }} .
-          docker push asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:monorepo-${{  github.sha }}
+          DOCKER_BUILDKIT=1 docker buildx build --platform=linux/amd64 -f docker/production.Dockerfile -t asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:tooljet-${{  github.sha }} .
+          docker push asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:tooljet-${{  github.sha }}
 
       - name: Setup Cloud SDK for Deployment to Singapore
         uses: google-github-actions/setup-gcloud@v0.2.1
@@ -79,7 +79,7 @@ jobs:
         uses: google-github-actions/deploy-cloudrun@v0.6.0
         with:
           service: ${{ env.SERVICE }}
-          image: asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:monorepo-${{  github.sha }}
+          image: asia.gcr.io/${{ env.DOCKER_PROJECT_ID }}/${{ env.SERVICE }}:tooljet-${{  github.sha }}
           region: ${{ env.REGION_SINGAPORE }}
 
       - name: Show Output for Singapore
