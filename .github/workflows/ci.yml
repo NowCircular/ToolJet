@@ -59,6 +59,18 @@ jobs:
       - run: npm i -g npm@7.20.0
       - run: npm run build
 
+  deploy:
+    uses: ./.github/workflows/tooljet-build-deploy.yml
+    secrets:
+      REGION_SINGAPORE: ${{ secrets.REGION_SINGAPORE }}
+      REGION_SYDNEY: ${{ secrets.REGION_SYDNEY }}
+      DOCKER_PROJECT_ID: ${{ secrets.DOCKER_PROJECT_ID }}
+      DOCKER_SA_KEY: ${{ secrets.DOCKER_SA_KEY }}
+      GCP_SG_DEV_PROJECT: ${{ secrets.GCP_SG_DEV_PROJECT }}
+      GCP_SG_DEV_SA_KEY: ${{ secrets.GCP_SG_DEV_SA_KEY }}
+      GCP_AU_DEV_PROJECT: ${{ secrets.GCP_AU_DEV_PROJECT }}
+      GCP_AU_DEV_SA_KEY: ${{ secrets.GCP_AU_DEV_SA_KEY }}
+
   lint:
     runs-on: ubuntu-latest
     if: |

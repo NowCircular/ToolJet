@@ -16,13 +16,6 @@ name: Build and Deploy a Container
 
 on:
   workflow_call:
-    inputs:
-      path:
-        required: true
-        type: string
-      service:
-        required: true
-        type: string
     secrets:
       DOCKER_PROJECT_ID:
         required: true
